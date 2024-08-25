@@ -1,0 +1,142 @@
+/* Base styles for the body with a cyberpunk gradient background */
+body {
+    background: linear-gradient(135deg, #ff007f, #8a2be2, #00ffff, #ff007f);
+    background-size: 400% 400%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Place the content at the top */
+    align-items: center; /* Center content horizontally */
+    height: 100vh;
+    margin: 0;
+    padding-top: 20px; /* Optional: Add padding to give some space from the top */
+    font-family: "Courier New", Courier, monospace;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+/* Gradient animation for a dynamic effect */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Style for the main title with the Honk font */
+.honk-title {
+    font-family: "Honk", system-ui;
+    font-style: normal;
+    font-size: 200px;
+    font-variation-settings:
+        "MORF" 30,
+        "SHLN" 50;
+    text-align: center; /* Center the text within the h1 */
+    margin: 0 0 20px 0; /* Remove top margin, add bottom margin */
+    user-select: none;
+}
+
+/* Styles for the terminal container */
+#terminal-container {
+    width: 80%;
+    max-width: 800px;
+    margin-top: 0; /* Remove any default top margin */
+}
+
+/* Styles for the terminal header */
+#terminal-header {
+    background-color: #29292c;
+    display: flex;
+    justify-content: center; /* Center the terminal title */
+    align-items: center; /* Center content vertically */
+    padding: 16px; /* Increase padding to thicken the header */
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    position: relative; /* Enable absolute positioning for buttons */
+    user-select: none;
+}
+
+/* Styles for the buttons in the terminal header */
+.button {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin: 0 5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for hover effect */
+    position: absolute; /* Position the buttons independently */
+    top: 50%;
+    transform: translateY(-50%); /* Center the buttons vertically */
+}
+
+.red {
+    background-color: #ff5f56;
+    left: 10px; /* Align the red button to the left */
+}
+
+.yellow {
+    background-color: #ffbd2e;
+    left: 30px; /* Space the yellow button accordingly */
+}
+
+.green {
+    background-color: #27c93f;
+    left: 50px; /* Space the green button accordingly */
+}
+
+/* Hover effect for terminal buttons */
+.button:hover {
+    transform: translateY(-50%) scale(1.1); /* Ensure the button stays aligned while scaling */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Subtle shadow effect */
+}
+
+/* Style for the terminal title */
+.terminal-title {
+    color: #ccc; /* Light grey color typical of terminal text */
+    font-size: 14px;
+    font-family: "Courier New", Courier, monospace;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Center the title horizontally */
+    user-select: none;
+}
+
+/* Styles for the terminal itself */
+#terminal {
+    background-color: #1a1a1d;
+    height: 400px;
+    padding: 10px;
+    overflow-y: auto;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: green;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 16px;
+    line-height: 1.4;
+    user-select: none;
+}
+
+/* Styles for the input line in the terminal */
+#input-line {
+    display: flex;
+}
+
+#input-prompt {
+    margin-right: 5px;
+}
+
+#input-field {
+    background: none;
+    border: none;
+    outline: none;
+    color: green;
+    flex-grow: 1;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 16px;
+}
+
+/* Styles for the output lines in the terminal */
+.output {
+    margin: 5px 0;
+}
+
+.output span {
+    color: green;
+}
