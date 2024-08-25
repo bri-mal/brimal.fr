@@ -2,13 +2,37 @@ const terminal = document.getElementById('terminal');
 const inputContainer = document.getElementById('input-line');
 let inputField = document.getElementById('input-field');
 
+let commandHistory = [];
+let historyIndex = -1;
+
 inputField.addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
         const input = inputField.value.trim();  // Trim to remove extra spaces
         if (input) {
             handleCommand(input);
+            commandHistory.push(input); // Ajouter la commande à l'historique
+            historyIndex = commandHistory.length; // Réinitialiser l'index
             inputField.value = '';
             terminal.scrollTop = terminal.scrollHeight;
+        }
+    }
+});
+
+inputField.addEventListener('keydown', function(event) {
+    if (event.key === 'ArrowUp') {
+        if (historyIndex > 0) {
+            historyIndex--;
+            inputField.value = commandHistory[historyIndex];
+        } else if (historyIndex === 0) {
+            inputField.value = commandHistory[historyIndex];
+        }
+    } else if (event.key === 'ArrowDown') {
+        if (historyIndex < commandHistory.length - 1) {
+            historyIndex++;
+            inputField.value = commandHistory[historyIndex];
+        } else {
+            historyIndex = commandHistory.length;
+            inputField.value = '';
         }
     }
 });
@@ -19,7 +43,7 @@ function handleCommand(input) {
 
     switch (input.toLowerCase()) {
         case 'help':
-            output.innerHTML = `<span>Available commands:</span><br>- help<br>- about<br>- clear<br>- github`;
+            output.innerHTML = `<span>Available commands:</span><br>- help<br>- about<br>- clear<br>- github<br>- date<br>- echo<br>- theme<br>- version`;
             break;
         case 'about':
             output.innerHTML = `<span>Hello! How can I assist you?</span>`;
