@@ -20,6 +20,17 @@ body {
     100% { background-position: 0% 50%; }
 }
 
+@media (max-width: 768px) {
+    .honk-title {
+        font-size: 100px;
+    }
+    #terminal-container {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+
 /* Style for the main title with the Honk font */
 .honk-title {
     font-family: "Honk", system-ui;

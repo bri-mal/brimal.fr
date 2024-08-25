@@ -1,0 +1,33 @@
+# robots.txt for brimal.fr
+
+# Authorize all web crawlers to access the entire site
+User-agent: *
+Disallow:
+
+# Specify the location of the sitemap (if you have one)
+# Sitemap: https://www.brimal.fr/sitemap.xml
+
+# Block access to specific folders (if any)
+# Disallow: /private/
+# Disallow: /admin/
+
+# Block access to specific files (if any)
+# Disallow: /secret.html
+
+# Block all crawlers from indexing CGI scripts
+Disallow: /cgi-bin/
+
+# Allow specific crawlers (e.g., Googlebot) to access everything
+User-agent: Googlebot
+Disallow:
+
+# Block specific crawlers from accessing the site
+User-agent: BadBot
+Disallow: /
+
+# Limit the crawl rate to reduce server load (optional)
+Crawl-delay: 10
+
+# Ref Sitemap.xml
+Sitemap: https://www.brimal.fr/sitemap.xml
+
