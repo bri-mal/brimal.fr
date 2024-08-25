@@ -33,6 +33,21 @@ function handleCommand(input) {
             output.innerHTML = `<span>Redirecting to GitHub...</span>`;
             window.open('https://github.com/bri-mal', '_blank');
             break;
+        case 'date':
+            const now = new Date();
+            output.innerHTML = `<span>${now.toString()}</span>`;
+            break;
+        case 'echo':
+            const echoText = input.slice(5); // Capture the text after 'echo '
+            output.innerHTML = `<span>${echoText}</span>`;
+            break;
+        case 'theme':
+            document.body.classList.toggle('dark-theme');
+            output.innerHTML = `<span>Theme toggled.</span>`;
+            break;
+        case 'version':
+            output.innerHTML = `<span>Current version: 1.0.0</span>`;
+            break;                             
         default:
             output.innerHTML = `<span>Unknown command: ${input} - type 'help' for available commands.</span>`;
     }
