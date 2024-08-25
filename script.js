@@ -19,7 +19,7 @@ function handleCommand(input) {
 
     switch (input.toLowerCase()) {
         case 'help':
-            output.innerHTML = `<span>Available commands:</span><br>- help<br>- about<br>- github<br>- clear`;
+            output.innerHTML = `<span>Available commands:</span><br>- help<br>- about<br>- github;
             break;
         case 'about':
             output.innerHTML = `<span>Hello! How can I assist you?</span>`;
