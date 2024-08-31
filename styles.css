@@ -1,147 +1,107 @@
-/* Base styles for the body with a cyberpunk gradient background */
+/* Thème par défaut (clair) */
 body {
     background: linear-gradient(135deg, #ff007f, #8a2be2, #00ffff, #ff007f);
     background-size: 400% 400%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Place the content at the top */
-    align-items: center; /* Center content horizontally */
+    justify-content: flex-start;
+    align-items: center;
     height: 100vh;
     margin: 0;
-    padding-top: 20px; /* Optional: Add padding to give some space from the top */
+    padding-top: 20px;
     font-family: "Courier New", Courier, monospace;
     animation: gradientAnimation 10s ease infinite;
+    color: #000000;
 }
 
-/* Gradient animation for a dynamic effect */
+/* Gradient animation */
 @keyframes gradientAnimation {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-@media (max-width: 768px) {
-    body {
-        font-size: 14px;
-    }
-    .honk-title {
-        font-size: 100px;
-    }
-    #terminal-container {
-        width: 100%;
-        padding: 10px;
-    }
-    .button {
-        width: 12px;
-        height: 12px;
-        left: 5px;
-    }
-    .terminal-title {
-        font-size: 12px;
-    }
+/* Thème sombre */
+body.dark-theme {
+    background-color: #1a1a1a;
+    color: #ffffff;
 }
 
-@media (max-width: 480px) {
-    body {
-        font-size: 7px;
-    }
-    .honk-title {
-        font-size: 100px;
-        }
-    #terminal-container {
-        width: 80%;
-        padding: 5px;
-        }
-    .button {
-        width: 6px;
-        height: 6px;
-        left: 3px;
-        }
-    .terminal-title {
-        font-size: 12px;
-        }
+/* Style pour le terminal et l'input en mode sombre */
+#terminal.dark-theme {
+    background-color: #333333;
+    color: #00ff00;
 }
 
+#input-field.dark-theme {
+    color: #00ff00;
+}
 
-/* Style for the main title with the Honk font */
+/* Styles pour le titre */
 .honk-title {
     font-family: "Honk", system-ui;
     font-style: normal;
-    font-size: 70px;
-    font-variation-settings:
-        "MORF" 30,
-        "SHLN" 50;
-    text-align: center; /* Center the text within the h1 */
-    margin: 0 0 20px 0; /* Remove top margin, add bottom margin */
+    font-size: 200px;
+    text-align: center;
+    margin: 0 0 20px 0;
     user-select: none;
 }
 
-/* Styles for the terminal container */
+/* Styles pour le conteneur du terminal */
 #terminal-container {
     width: 80%;
     max-width: 800px;
-    margin-top: 0; /* Remove any default top margin */
+    margin-top: 0;
 }
 
-/* Styles for the terminal header */
+/* Styles pour l'en-tête du terminal */
 #terminal-header {
     background-color: #29292c;
     display: flex;
-    justify-content: center; /* Center the terminal title */
-    align-items: center; /* Center content vertically */
-    padding: 16px; /* Increase padding to thicken the header */
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    position: relative; /* Enable absolute positioning for buttons */
+    position: relative;
     user-select: none;
 }
 
-/* Styles for the buttons in the terminal header */
+/* Styles pour les boutons de l'en-tête du terminal */
 .button {
     display: inline-block;
     width: 16px;
     height: 16px;
     border-radius: 50%;
     margin: 0 5px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for hover effect */
-    position: absolute; /* Position the buttons independently */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: absolute;
     top: 50%;
-    transform: translateY(-50%); /* Center the buttons vertically */
+    transform: translateY(-50%);
 }
 
-.red {
-    background-color: #ff5f56;
-    left: 10px; /* Align the red button to the left */
-}
+.red { background-color: #ff5f56; left: 10px; }
+.yellow { background-color: #ffbd2e; left: 30px; }
+.green { background-color: #27c93f; left: 50px; }
 
-.yellow {
-    background-color: #ffbd2e;
-    left: 30px; /* Space the yellow button accordingly */
-}
-
-.green {
-    background-color: #27c93f;
-    left: 50px; /* Space the green button accordingly */
-}
-
-/* Hover effect for terminal buttons */
+/* Effet au survol des boutons */
 .button:hover {
-    transform: translateY(-50%) scale(1.1); /* Ensure the button stays aligned while scaling */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Subtle shadow effect */
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
-/* Style for the terminal title */
+/* Styles pour le titre du terminal */
 .terminal-title {
-    color: #ccc; /* Light grey color typical of terminal text */
+    color: #ccc;
     font-size: 14px;
     font-family: "Courier New", Courier, monospace;
     position: absolute;
     left: 50%;
-    transform: translateX(-50%); /* Center the title horizontally */
+    transform: translateX(-50%);
     user-select: none;
 }
 
-/* Styles for the terminal itself */
+/* Styles pour le terminal */
 #terminal {
     background-color: #1a1a1d;
     height: 400px;
@@ -156,7 +116,7 @@ body {
     user-select: none;
 }
 
-/* Styles for the input line in the terminal */
+/* Styles pour la ligne d'entrée dans le terminal */
 #input-line {
     display: flex;
 }
@@ -175,11 +135,7 @@ body {
     font-size: 16px;
 }
 
-/* Styles for the output lines in the terminal */
+/* Styles pour les lignes de sortie dans le terminal */
 .output {
     margin: 5px 0;
-}
-
-.output span {
-    color: green;
 }

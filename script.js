@@ -66,7 +66,9 @@ function handleCommand(input) {
             output.innerHTML = `<span>${echoText}</span>`;
             break;
         case 'theme':
-            document.body.classList.toggle('dark-theme');
+            document.body.classList.toggle('dark-theme'); // Toggle dark theme
+            terminal.classList.toggle('dark-theme'); // Toggle dark theme for terminal
+            inputField.classList.toggle('dark-theme'); // Toggle dark theme for input field
             output.innerHTML = `<span>Theme toggled.</span>`;
             break;
         case 'version':
